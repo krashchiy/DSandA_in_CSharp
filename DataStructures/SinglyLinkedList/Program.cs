@@ -6,12 +6,31 @@ namespace SinglyLinkedList
     {
         static void Main(string[] args)
         {
-            Cell<int> top = new Cell<int>();
-            top.Value = 23;
-            Cell<int> next = new Cell<int>();
-            top.Next = next;
-            next.Value = 33;
 
+
+        }
+    }
+    public class LinkedList<T>{
+        public Cell<T> Top { get; set; }
+
+        public void AddLeftCell(Cell<T> cell)
+        {
+            //Add to the right of top
+        }
+
+        public void AddRightCell(Cell<T> cell)
+        {
+            //Find Right Most Cell
+        }
+
+        private Cell<T> FindRightMostCell()
+        {
+            return new Cell<T>();
+        }
+
+        private Cell<T> FightLeftMostCell()
+        {
+            return new Cell<T>();
         }
     }
 }
