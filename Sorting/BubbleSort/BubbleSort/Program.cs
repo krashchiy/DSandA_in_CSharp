@@ -27,12 +27,15 @@ namespace BubbleSort
             {
                 bool Swapping = true;
 
+                // Repeat forever:
                 while (Swapping)
                 {
                     bool swappedThisLoop = false;
 
+                    // Scan through the list
                     for (int i = 0; i < myInts.Count - 1; i++)
                     {
+                        // If two adjacent items are out of order, swap them
                         if (myInts[i] > myInts[i+1])
                         {
                             int temp = myInts[i];
@@ -41,6 +44,8 @@ namespace BubbleSort
                             swappedThisLoop = true;
                         }
                     }
+
+                    // If you finish the scan without a swap, you're done
                     Swapping = swappedThisLoop;
                 }
 
