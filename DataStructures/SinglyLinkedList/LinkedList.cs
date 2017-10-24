@@ -30,17 +30,42 @@ namespace SinglyLinkedList
 
         public void AddRightCell(Cell<T> cell)
         {
-            //Find Right Most Cell
+            if (Top.Next == null)
+            {
+                Top.Next = cell;
+            }
+            else
+            {
+                Cell<T> first = new Cell<T>();
+                first.Next = Top.Next;
+                first.Value = Top.Value;
+                while (first.Next != null)
+                {
+                    first = first.Next;
+                }
+
+                first.Next = cell;
+            }
         }
 
-        private Cell<T> FindRightMostCell()
+        public void AddAfter(Cell<T> target, Cell<T> cellToAdd)
         {
-            return new Cell<T>();
+            target.AddAfter(cellToAdd);
         }
 
-        private Cell<T> FightLeftMostCell()
+        public void DeleteCell(Cell<T> target)
         {
-            return new Cell<T>();
+            Cell<T> targetsParent = FindTargetsParent(target);
+
+            if (targetsParent.Next.Next != null)
+            {
+                targetsParent.Next = targetsParent.Next.Next;
+            }
+            else
+            {
+                targetsParent.Next = null;
+            }
+            
         }
 
         public int Count()
@@ -72,6 +97,23 @@ namespace SinglyLinkedList
             }
 
             return Values;
+        }
+
+        private Cell<T> FindTargetsParent(Cell<T> target)
+        {
+            Cell<T> possibleParent = Top.Next;
+            while (possibleParent.Next != null)
+            {
+                if (possibleParent.Next == target)
+                {
+                    return possibleParent;
+                }
+              
+                possibleParent = possibleParent.Next.Next;
+                
+            }
+           
+            return new Cell<T>();
         }
     }
 }

@@ -8,20 +8,27 @@ namespace SinglyLinkedList
         static void Main(string[] args)
         {
         
-            LinkedList<int> myList = new LinkedList<int>();
-            Cell<int> myCell = new Cell<int>(){ Value = 18};
+            LinkedList<string> myList = new LinkedList<string>();
+            Cell<string> myCell = new Cell<string>(){ Value = "Food"};
             myList.Add(myCell);
-            Cell<int> myNextCell = new Cell<int>() { Value = 24 };
+            Cell<string> myNextCell = new Cell<string>() { Value = "Love" };
             myList.Add(myNextCell);
-            Cell<int> myLastCell = new Cell<int>() { Value = 32 };
+            Cell<string> myLastCell = new Cell<string>() { Value = "Don't" };
             myList.Add(myLastCell);
-            Cell<int> firstCell = new Cell<int>() {Value = 26};
+            Cell<string> firstCell = new Cell<string>() {Value = "I"};
             myList.AddLeftCell(firstCell);
+            Cell<string> finalCell = new Cell<string>() {Value = "Sike"};
+            myList.AddRightCell(finalCell);
+
+            myList.DeleteCell(myLastCell);
+            myList.DeleteCell(finalCell);
+            Cell<string> randomCell = new Cell<string>(){Value = "Always"};
+            myList.AddAfter(firstCell, randomCell);
 
             Console.WriteLine("There are " + myList.Count().ToString() +" items in the LinkedList!");
             Console.ReadLine();
 
-            List<int> results = myList.GetAllValues();
+            List<string> results = myList.GetAllValues();
             foreach (var result in results)
             {
                 Console.WriteLine(result.ToString());
