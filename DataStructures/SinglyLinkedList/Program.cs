@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace SinglyLinkedList
 {
@@ -6,31 +7,27 @@ namespace SinglyLinkedList
     {
         static void Main(string[] args)
         {
+        
+            LinkedList<int> myList = new LinkedList<int>();
+            Cell<int> myCell = new Cell<int>(){ Value = 18};
+            myList.Add(myCell);
+            Cell<int> myNextCell = new Cell<int>() { Value = 24 };
+            myList.Add(myNextCell);
+            Cell<int> myLastCell = new Cell<int>() { Value = 32 };
+            myList.Add(myLastCell);
+            Cell<int> firstCell = new Cell<int>() {Value = 26};
+            myList.AddLeftCell(firstCell);
 
+            Console.WriteLine("There are " + myList.Count().ToString() +" items in the LinkedList!");
+            Console.ReadLine();
 
-        }
-    }
-    public class LinkedList<T>{
-        public Cell<T> Top { get; set; }
+            List<int> results = myList.GetAllValues();
+            foreach (var result in results)
+            {
+                Console.WriteLine(result.ToString());
+            }
 
-        public void AddLeftCell(Cell<T> cell)
-        {
-            //Add to the right of top
-        }
-
-        public void AddRightCell(Cell<T> cell)
-        {
-            //Find Right Most Cell
-        }
-
-        private Cell<T> FindRightMostCell()
-        {
-            return new Cell<T>();
-        }
-
-        private Cell<T> FightLeftMostCell()
-        {
-            return new Cell<T>();
+            Console.ReadLine();
         }
     }
 }
