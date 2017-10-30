@@ -50,7 +50,8 @@ namespace SinglyLinkedList
 
         public void AddAfter(Cell<T> target, Cell<T> cellToAdd)
         {
-            target.AddAfter(cellToAdd);
+            cellToAdd.Next = target.Next;
+            target.Next = cellToAdd;
         }
 
         public void DeleteCell(Cell<T> target)
